@@ -16,17 +16,17 @@ class ItemViewController: UIViewController {
 
     @IBAction func savePressed(sender: AnyObject) {
         
-        let appDel : AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDel : AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
         let context : NSManagedObjectContext = appDel.managedObjectContext!
-        let en = NSEntityDescription.entityForName("List", inManagedObjectContext: context)
-        var newItem = Model(entity: en!, insertIntoManagedObjectContext: context)
+       // let en = NSEntityDescription.entityForName("List", inManagedObjectContext: context)
+        var newItem = NSEntityDescription.insertNewObjectForEntityForName("List", inManagedObjectContext: context) as NSManagedObject
+
         
-        newItem.item = txtItem.text
-        newItem.quantity = txtQuantity.text
-        newItem.info = txtInfo.text
+        newItem.setValue(txtItem.text, forKey: "item")
+        newItem.setValue(txtQuantity.text, forKey: "quantity")
+        newItem.setValue(txtInfo.text, forKey: "info")
         
         context.save(nil)
-        println(newItem)
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
    
