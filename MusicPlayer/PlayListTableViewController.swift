@@ -1,53 +1,49 @@
 import UIKit
 import CoreData
 
-class PlayListTableViewController: UIViewController,UITableViewDelegate, UITableViewDataSource  {
+class PlayListTableViewController: UITableViewController,UITableViewDelegate, UITableViewDataSource  {
     
-    @IBOutlet weak var playListTable: UITableView!
     var playList = [AnyObject]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let appDel : AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        JSONData().jsonGetRequest()
+        
+        let context : NSManagedObjectContext = appDel.managedObjectContext!
+        let request = NSFetchRequest(entityName: "PlayListEntity")
+        request.returnsObjectsAsFaults = false
+        playList = context.executeFetchRequest(request, error: nil)!
+        
     }
     
     override func viewDidAppear(animated: Bool) {
-        let appDel : AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        let context : NSManagedObjectContext = appDel.managedObjectContext!
-        let request = NSFetchRequest(entityName: "List")
-        request.returnsObjectsAsFaults = false
-        
-        playList = context.executeFetchRequest(request, error: nil)!
-        
-        for res in playList{
-            println(res)
-        }
-        
-        playListTable.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        println(playList.count)
         return playList.count
     }
-
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Default")
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cellId: String = "cell"
+        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(cellId) as UITableViewCell
         var data : NSManagedObject = playList[indexPath.row] as NSManagedObject
         
         
-        cell.textLabel.text = data.valueForKeyPath("item") as? String
-        var quantity = data.valueForKeyPath("quantity") as String
-        var info = data.valueForKeyPath("info") as String
-        cell.detailTextLabel?.text = "\(quantity) intems of \(info)"
-        
+        cell.textLabel.text = data.valueForKeyPath("artist") as? String
+        println(data.valueForKeyPath("artist"))
+        cell.detailTextLabel?.text = data.valueForKeyPath("title") as? String
+        println(data.valueForKeyPath("title"))
         return cell
     }
+    
     
 
     

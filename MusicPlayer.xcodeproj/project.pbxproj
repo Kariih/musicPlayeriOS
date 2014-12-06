@@ -15,6 +15,9 @@
 		EC392B801A2FCFEB00C79D4F /* MusicPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC392B7F1A2FCFEB00C79D4F /* MusicPlayerTests.swift */; };
 		EC392B8C1A2FD29C00C79D4F /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC392B8B1A2FD29C00C79D4F /* ItemViewController.swift */; };
 		EC392B941A2FFFC700C79D4F /* PlayListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC392B931A2FFFC700C79D4F /* PlayListTableViewController.swift */; };
+		EC392B9A1A30162800C79D4F /* SearchSongTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC392B991A30162800C79D4F /* SearchSongTableViewController.swift */; };
+		EC392B9E1A301B2600C79D4F /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC392B9D1A301B2600C79D4F /* Music.swift */; };
+		EC392BA01A301F7500C79D4F /* JSONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC392B9F1A301F7500C79D4F /* JSONData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,9 @@
 		EC392B7F1A2FCFEB00C79D4F /* MusicPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerTests.swift; sourceTree = "<group>"; };
 		EC392B8B1A2FD29C00C79D4F /* ItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		EC392B931A2FFFC700C79D4F /* PlayListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayListTableViewController.swift; sourceTree = "<group>"; };
+		EC392B991A30162800C79D4F /* SearchSongTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchSongTableViewController.swift; sourceTree = "<group>"; };
+		EC392B9D1A301B2600C79D4F /* Music.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
+		EC392B9F1A301F7500C79D4F /* JSONData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +95,9 @@
 				EC392B641A2FCFEA00C79D4F /* Supporting Files */,
 				EC392B8B1A2FD29C00C79D4F /* ItemViewController.swift */,
 				EC392B931A2FFFC700C79D4F /* PlayListTableViewController.swift */,
+				EC392B991A30162800C79D4F /* SearchSongTableViewController.swift */,
+				EC392B9D1A301B2600C79D4F /* Music.swift */,
+				EC392B9F1A301F7500C79D4F /* JSONData.swift */,
 			);
 			path = MusicPlayer;
 			sourceTree = "<group>";
@@ -220,7 +229,10 @@
 			files = (
 				EC392B8C1A2FD29C00C79D4F /* ItemViewController.swift in Sources */,
 				EC392B6A1A2FCFEA00C79D4F /* MusicPlayer.xcdatamodeld in Sources */,
+				EC392B9A1A30162800C79D4F /* SearchSongTableViewController.swift in Sources */,
+				EC392B9E1A301B2600C79D4F /* Music.swift in Sources */,
 				EC392B941A2FFFC700C79D4F /* PlayListTableViewController.swift in Sources */,
+				EC392BA01A301F7500C79D4F /* JSONData.swift in Sources */,
 				EC392B671A2FCFEA00C79D4F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

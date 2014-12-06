@@ -18,8 +18,7 @@ class ItemViewController: UIViewController {
         
         let appDel : AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
         let context : NSManagedObjectContext = appDel.managedObjectContext!
-       // let en = NSEntityDescription.entityForName("List", inManagedObjectContext: context)
-        var newItem = NSEntityDescription.insertNewObjectForEntityForName("List", inManagedObjectContext: context) as NSManagedObject
+        var newItem = NSEntityDescription.insertNewObjectForEntityForName("PlayListEntity", inManagedObjectContext: context) as NSManagedObject
 
         
         newItem.setValue(txtItem.text, forKey: "item")
