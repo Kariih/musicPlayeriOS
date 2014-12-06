@@ -6,7 +6,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MusicPlayer/Model.swift"
@@ -41,7 +41,7 @@
                   symbolName = "MusicPlayer.AppDelegate.window.getter : Swift.Optional&lt;ObjectiveC.UIWindow&gt;"
                   moduleName = "MusicPlayer"
                   urlString = "file:///Users/Bappel/NITH/iOS/code/apps/MusicPlayer/MusicPlayer/AppDelegate.swift"
-                  timestampString = "439345554.416643"
+                  timestampString = "439569767.77482"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "15"
@@ -55,7 +55,7 @@
                   symbolName = "MusicPlayer.AppDelegate.window.setter : Swift.Optional&lt;ObjectiveC.UIWindow&gt;"
                   moduleName = "MusicPlayer"
                   urlString = "file:///Users/Bappel/NITH/iOS/code/apps/MusicPlayer/MusicPlayer/AppDelegate.swift"
-                  timestampString = "439345554.419669"
+                  timestampString = "439569767.775027"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "15"
@@ -69,7 +69,7 @@
                   symbolName = "MusicPlayer.AppDelegate.window.materializeForSet : Swift.Optional&lt;ObjectiveC.UIWindow&gt;"
                   moduleName = "MusicPlayer"
                   urlString = "file:///Users/Bappel/NITH/iOS/code/apps/MusicPlayer/MusicPlayer/AppDelegate.swift"
-                  timestampString = "439345554.419869"
+                  timestampString = "439569767.775159"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "15"
@@ -83,7 +83,7 @@
                   symbolName = "MusicPlayer.AppDelegate.init (MusicPlayer.AppDelegate.Type)() -&gt; MusicPlayer.AppDelegate"
                   moduleName = "MusicPlayer"
                   urlString = "file:///Users/Bappel/NITH/iOS/code/apps/MusicPlayer/MusicPlayer/AppDelegate.swift"
-                  timestampString = "439345554.420015"
+                  timestampString = "439569767.775292"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "15"
@@ -112,7 +112,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MusicPlayer/ListTableViewController.swift"
@@ -128,7 +128,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MusicPlayer/ListTableViewController.swift"
@@ -163,13 +163,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MusicPlayer/PlayListTableViewController.swift"
-            timestampString = "439529635.925576"
+            filePath = "MusicPlayer/SoundPlayerController.swift"
+            timestampString = "439569584.965811"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "viewDidAppear(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -18,6 +18,9 @@
 		EC392B9A1A30162800C79D4F /* SearchSongTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC392B991A30162800C79D4F /* SearchSongTableViewController.swift */; };
 		EC392B9E1A301B2600C79D4F /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC392B9D1A301B2600C79D4F /* Music.swift */; };
 		EC392BA01A301F7500C79D4F /* JSONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC392B9F1A301F7500C79D4F /* JSONData.swift */; };
+		EC8DF5CB1A32E86800BB8A5B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECBADFE91A32BBEF0081E728 /* AVFoundation.framework */; };
+		EC8DF5CC1A32E87E00BB8A5B /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECBADFEB1A32BC140081E728 /* AVKit.framework */; };
+		ECBADFE81A32B3050081E728 /* SoundPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBADFE71A32B3050081E728 /* SoundPlayerController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,9 @@
 		EC392B991A30162800C79D4F /* SearchSongTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchSongTableViewController.swift; sourceTree = "<group>"; };
 		EC392B9D1A301B2600C79D4F /* Music.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
 		EC392B9F1A301F7500C79D4F /* JSONData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONData.swift; sourceTree = "<group>"; };
+		ECBADFE71A32B3050081E728 /* SoundPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundPlayerController.swift; sourceTree = "<group>"; };
+		ECBADFE91A32BBEF0081E728 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		ECBADFEB1A32BC140081E728 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC8DF5CC1A32E87E00BB8A5B /* AVKit.framework in Frameworks */,
+				EC8DF5CB1A32E86800BB8A5B /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +77,8 @@
 		EC392B581A2FCFEA00C79D4F = {
 			isa = PBXGroup;
 			children = (
+				ECBADFEB1A32BC140081E728 /* AVKit.framework */,
+				ECBADFE91A32BBEF0081E728 /* AVFoundation.framework */,
 				EC392B631A2FCFEA00C79D4F /* MusicPlayer */,
 				EC392B7C1A2FCFEB00C79D4F /* MusicPlayerTests */,
 				EC392B621A2FCFEA00C79D4F /* Products */,
@@ -98,6 +108,7 @@
 				EC392B991A30162800C79D4F /* SearchSongTableViewController.swift */,
 				EC392B9D1A301B2600C79D4F /* Music.swift */,
 				EC392B9F1A301F7500C79D4F /* JSONData.swift */,
+				ECBADFE71A32B3050081E728 /* SoundPlayerController.swift */,
 			);
 			path = MusicPlayer;
 			sourceTree = "<group>";
@@ -227,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECBADFE81A32B3050081E728 /* SoundPlayerController.swift in Sources */,
 				EC392B8C1A2FD29C00C79D4F /* ItemViewController.swift in Sources */,
 				EC392B6A1A2FCFEA00C79D4F /* MusicPlayer.xcdatamodeld in Sources */,
 				EC392B9A1A30162800C79D4F /* SearchSongTableViewController.swift in Sources */,

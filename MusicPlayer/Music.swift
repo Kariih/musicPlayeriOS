@@ -13,6 +13,7 @@ struct song{
 class Music : NSObject{
 
     var songs = [song]()
+    var oneSong = song()
     
     func addSong(title : String, artist : String, picture : String, sound : String){
         songs.append(song(title: title, artist: artist, picture: picture, sound: sound))

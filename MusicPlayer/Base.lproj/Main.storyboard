@@ -32,6 +32,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="teO-7E-TcJ" kind="show" id="V8Z-mK-TtV"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -42,7 +45,7 @@
                     <navigationItem key="navigationItem" title="Playlist" id="1oq-LS-eoL">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="tik-p6-DuC">
                             <connections>
-                                <segue destination="qs8-XX-cgw" kind="show" id="Yb1-SA-poR"/>
+                                <segue destination="qs8-XX-cgw" kind="show" id="UiW-pq-cgf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -51,13 +54,69 @@
             </objects>
             <point key="canvasLocation" x="1703" y="391"/>
         </scene>
-        <!--AV Player View Controller-->
-        <scene sceneID="Wwq-nc-gDy">
+        <!--Sound Player Controller-->
+        <scene sceneID="MuX-ny-3yC">
             <objects>
-                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="ECu-QE-Ifz" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TER-NM-qf9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="teO-7E-TcJ" customClass="SoundPlayerController" customModule="MusicPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rjz-eo-usL"/>
+                        <viewControllerLayoutGuide type="bottom" id="UBZ-7r-Fq9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oOV-fZ-xwD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JYy-8F-pZW">
+                                <rect key="frame" x="129" y="81" width="342" height="342"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2n0-RM-4LE">
+                                <rect key="frame" x="142" y="506" width="31" height="30"/>
+                                <state key="normal" title="Prev">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="findPrevSong:" destination="teO-7E-TcJ" eventType="touchUpInside" id="CgK-HE-Iz4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vab-y0-1jH">
+                                <rect key="frame" x="227" y="506" width="30" height="30"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playSong:" destination="teO-7E-TcJ" eventType="touchUpInside" id="E36-gp-05F"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0L-bi-pkF">
+                                <rect key="frame" x="309" y="506" width="43" height="30"/>
+                                <state key="normal" title="Pause">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pauseSong:" destination="teO-7E-TcJ" eventType="touchUpInside" id="XEl-vS-b3w"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNs-HJ-dXd">
+                                <rect key="frame" x="384" y="506" width="32" height="30"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="findNextSong:" destination="teO-7E-TcJ" eventType="touchUpInside" id="5Cb-C6-Ghu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="e6U-xQ-3MK">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="qbw-he-Tzm"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="enW-5w-unF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1703" y="1226"/>
+            <point key="canvasLocation" x="1703" y="1213"/>
         </scene>
         <!--Search for song-->
         <scene sceneID="izV-A3-9Lw">
