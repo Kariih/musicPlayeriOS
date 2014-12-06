@@ -27,7 +27,6 @@ class SearchSongTableViewController: UITableViewController, UISearchBarDelegate 
     override func viewDidAppear(animated: Bool) {
         println("is in searchView")
         println(music.songs.count)
-    //    tableView.reloadData()
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

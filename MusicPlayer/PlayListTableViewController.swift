@@ -1,11 +1,12 @@
-
 import UIKit
 import CoreData
+import AVFoundation
 
-class PlayListTableViewController: UITableViewController,UITableViewDelegate, UITableViewDataSource  {
+class PlayListTableViewController: UITableViewController,UITableViewDelegate, UITableViewDataSource{
     
     var playList = [AnyObject]()
-    var index: Int = 0
+    var player:AVQueuePlayer!
+    var songsPlaying = [AnyObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +38,6 @@ class PlayListTableViewController: UITableViewController,UITableViewDelegate, UI
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellId: String = "cell"
         let cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier(cellId, forIndexPath: indexPath) as UITableViewCell
-        index = indexPath.row
         var data : NSManagedObject = playList[indexPath.row] as NSManagedObject
         cell.textLabel.text = data.valueForKeyPath("artist") as? String
         cell.detailTextLabel?.text = data.valueForKeyPath("title") as? String
@@ -64,15 +64,28 @@ class PlayListTableViewController: UITableViewController,UITableViewDelegate, UI
         }
         
     }
-    override func prepareForSegue(segue: (UIStoryboardSegue!), sender: AnyObject!) {
-        if let seq = segue.destinationViewController as?SoundPlayerController {
-            seq.songIndex = index
+    func startPlaying(index: Int){
+        songsPlaying.removeAll()
+        for index in index...playList.count-1{
+            var data : NSManagedObject = playList[index] as NSManagedObject
+            var songUrl = data.valueForKeyPath("preview") as? String
+            let url = NSURL(string: songUrl!)
+            music.oneSong.title = data.valueForKeyPath("title") as String
+            music.oneSong.artist = data.valueForKeyPath("artist") as String
+            println("index: \(index) og listetørrelse er: \(playList.count)")
+            songsPlaying.append(AVPlayerItem(URL: url!))
         }
-        
+        music.currentSongInList = index
+        player = AVQueuePlayer(items: songsPlaying)
+        println("is in player")
+        player.play()
+        println("is in player after play")
     }
-    
-    
-    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        music.currentSongInList = indexPath.row
+        startPlaying(indexPath.row)
+     
+    }
     /*
     // Override to support rearranging the table view.
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
