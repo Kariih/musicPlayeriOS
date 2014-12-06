@@ -15,6 +15,9 @@ class SearchSongTableViewController: UITableViewController, UISearchBarDelegate 
         
 
     }
+    override func viewWillAppear(animated: Bool){
+        tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -24,7 +27,7 @@ class SearchSongTableViewController: UITableViewController, UISearchBarDelegate 
     override func viewDidAppear(animated: Bool) {
         println("is in searchView")
         println(music.songs.count)
-        tableView.reloadData()
+    //    tableView.reloadData()
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -71,7 +74,7 @@ class SearchSongTableViewController: UITableViewController, UISearchBarDelegate 
 
         
         context.save(nil)
-        self.navigationController?.popToRootViewControllerAnimated(true)
+     //   self.navigationController?.popToRootViewControllerAnimated(true)
 
         
         
@@ -120,8 +123,6 @@ class SearchSongTableViewController: UITableViewController, UISearchBarDelegate 
                             }
                             
                             self.tableView.reloadData()
-                            
-                            // Masquer l'icône de chargement dans la barre de status
                             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                         })
 

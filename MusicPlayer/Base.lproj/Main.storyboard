@@ -51,6 +51,14 @@
             </objects>
             <point key="canvasLocation" x="1703" y="391"/>
         </scene>
+        <!--AV Player View Controller-->
+        <scene sceneID="Wwq-nc-gDy">
+            <objects>
+                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="ECu-QE-Ifz" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TER-NM-qf9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1703" y="1226"/>
+        </scene>
         <!--Search for song-->
         <scene sceneID="izV-A3-9Lw">
             <objects>

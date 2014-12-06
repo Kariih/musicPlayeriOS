@@ -7,17 +7,20 @@ class PlayListTableViewController: UITableViewController,UITableViewDelegate, UI
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    override func viewWillAppear(animated: Bool){
+        println("will appear")
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         let appDel : AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         JSONData().jsonGetRequest()
-        
         let context : NSManagedObjectContext = appDel.managedObjectContext!
         let request = NSFetchRequest(entityName: "PlayListEntity")
         request.returnsObjectsAsFaults = false
         playList = context.executeFetchRequest(request, error: nil)!
-        
-    }
-    
-    override func viewDidAppear(animated: Bool) {
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,45 +36,36 @@ class PlayListTableViewController: UITableViewController,UITableViewDelegate, UI
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellId: String = "cell"
-        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(cellId) as UITableViewCell
+        let cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier(cellId, forIndexPath: indexPath) as UITableViewCell
+        
         var data : NSManagedObject = playList[indexPath.row] as NSManagedObject
-        
-        
         cell.textLabel.text = data.valueForKeyPath("artist") as? String
-        println(data.valueForKeyPath("artist"))
         cell.detailTextLabel?.text = data.valueForKeyPath("title") as? String
-        println(data.valueForKeyPath("title"))
+        println("in cell")
+
         return cell
     }
-    
-    
-
-    
-    
-    
-    
-    
-    
-    //-----------------------------------------------------
-    /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return NO if you do not want the specified item to be editable.
         return true
     }
-    */
-
-    /*
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        let appDel : AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let context : NSManagedObjectContext = appDel.managedObjectContext!
+        
+            if editingStyle == UITableViewCellEditingStyle.Delete{
+                context.deleteObject(playList[indexPath.row] as NSManagedObject)
+                playList.removeAtIndex(indexPath.row)
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+            }
+            var error: NSError? = nil
+            if !context.save(&error){
+                abort()
+            }
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
