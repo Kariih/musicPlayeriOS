@@ -4,24 +4,23 @@ import CoreData
 
 class SoundPlayerController: UIViewController{
     
-    @IBOutlet weak var titleText: UILabel!
-    @IBOutlet weak var artistText: UILabel!
-    
+    @IBOutlet weak var artistTxt: UILabel!
+    @IBOutlet weak var titleTxt: UILabel!
     var song = music.oneSong
     var list = [AnyObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let appDel : AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        JSONData().jsonGetRequest()
-        let context : NSManagedObjectContext = appDel.managedObjectContext!
-        let request = NSFetchRequest(entityName: "PlayListEntity")
-        request.returnsObjectsAsFaults = false
-        list = context.executeFetchRequest(request, error: nil)!
         startPlaying()
         findObject()
         }
         func findObject(){
+            let appDel : AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+            JSONData().jsonGetRequest()
+            let context : NSManagedObjectContext = appDel.managedObjectContext!
+            let request = NSFetchRequest(entityName: "PlayListEntity")
+            request.returnsObjectsAsFaults = false
+            list = context.executeFetchRequest(request, error: nil)!
             var data : NSManagedObject = list[music.currentSongInList] as NSManagedObject
             song.artist = data.valueForKeyPath("artist") as String
             song.title = data.valueForKeyPath("title") as String
@@ -32,25 +31,24 @@ class SoundPlayerController: UIViewController{
             addDataToView()
         }
         func addDataToView(){
-            titleText.text = song.title
-            artistText.text = song.artist
+            titleTxt.text = song.title
+            artistTxt.text = song.artist
+
             findPicture()
         }
         @IBOutlet weak var picture: UIImageView!
         func findPicture() {
-            /*if let url = NSURL(string: song.picture){
-                println("image: \(url)")
-                if let image = UIImage(data: NSData(contentsOfURL: url)!){
-                    picture = UIImageView(image: image)
-                }
-            }*/
             
-            let url = NSURL(string: song.picture);
+            var urlString = song.picture
+            println("picture \(song.picture)")
+            let url = NSURL(string: urlString)
             var err: NSError?
             var imageData :NSData = NSData(contentsOfURL: url!,options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)!
-                var image = UIImage(data:imageData)
+            let image = UIImage(data: imageData)
+            let imageView = UIImageView(image: image!)
             
-            picture = UIImageView(image: image)
+            imageView.frame = CGRect(x: 50, y: 100, width: 200, height: 200)
+            view.addSubview(imageView)
             
     }
     func startPlaying(){
@@ -68,7 +66,15 @@ class SoundPlayerController: UIViewController{
         music.player.play()
         println("is in player after play")
     }
-
+    let note = NSNotificationCenter.defaultCenter().addObserverForName(
+        AVPlayerItemDidPlayToEndTimeNotification,
+        object: nil,
+        queue: nil,{ note in
+            println(note)
+            music.addOne()
+            println("index fra handler: \(music.currentSongInList)")
+            music.nextView()
+    })
     @IBAction func playPrev(sender: AnyObject) {
         music.removeOne()
         startPlaying()

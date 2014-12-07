@@ -12,6 +12,7 @@ struct song{
 
 class Music : NSObject{
 
+
     var songs = [song]()
     var oneSong = song()
     var currentSongInList :Int = 3;
@@ -25,10 +26,13 @@ class Music : NSObject{
     func addOne(){
         currentSongInList++
         println("Added i music \(currentSongInList)")
+        
     }
     func removeOne(){
         currentSongInList--
         println("Added i music \(currentSongInList)")
     }
-
+    func nextView(){
+        SoundPlayerController().findObject()
+    }
 }

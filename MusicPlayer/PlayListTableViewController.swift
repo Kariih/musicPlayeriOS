@@ -35,6 +35,11 @@ class PlayListTableViewController: UITableViewController,UITableViewDelegate, UI
         let cellId: String = "cell"
         let cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier(cellId, forIndexPath: indexPath) as UITableViewCell
         var data : NSManagedObject = music.playList[indexPath.row] as NSManagedObject
+        var urlString = data.valueForKeyPath("picture") as? String
+        let url = NSURL(string: urlString!)
+        var err: NSError?
+        var imageData :NSData = NSData(contentsOfURL: url!,options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)!
+        cell.imageView.image = UIImage(data: imageData)
         cell.textLabel.text = data.valueForKeyPath("artist") as? String
         cell.detailTextLabel?.text = data.valueForKeyPath("title") as? String
         
@@ -82,16 +87,6 @@ class PlayListTableViewController: UITableViewController,UITableViewDelegate, UI
         startPlaying()
      
     }
-
-    let note = NSNotificationCenter.defaultCenter().addObserverForName(
-        AVPlayerItemDidPlayToEndTimeNotification,
-        object: nil,
-        queue: nil,{ note in
-        println(note)
-        music.addOne()
-        music.currentSongInList + 1
-        println("index fra handler: \(music.currentSongInList)")
-    })
     @IBAction func playPrev(sender: AnyObject) {
         music.removeOne()
         startPlaying()
@@ -107,7 +102,6 @@ class PlayListTableViewController: UITableViewController,UITableViewDelegate, UI
     @IBAction func play(sender: AnyObject) {
         music.player.play()
     }
-
 
     /*
     // Override to support rearranging the table view.
