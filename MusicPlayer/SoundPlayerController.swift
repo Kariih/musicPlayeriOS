@@ -7,8 +7,8 @@ class SoundPlayerController: UIViewController{
     @IBOutlet weak var artistTxt: UILabel!
     @IBOutlet weak var titleTxt: UILabel!
     @IBOutlet weak var discoLbl: UILabel!
-    var song = music.oneSong
     var list = [AnyObject]()
+    var AvPlayer:AVPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,24 +24,21 @@ class SoundPlayerController: UIViewController{
             request.returnsObjectsAsFaults = false
             list = context.executeFetchRequest(request, error: nil)!
             var data : NSManagedObject = list[music.currentSongInList] as NSManagedObject
-            song.artist = data.valueForKeyPath("artist") as String
-            song.title = data.valueForKeyPath("title") as String
-            song.picture = data.valueForKeyPath("picture") as String
-            println("item 1\(song.artist)")
-                println("item 2\(song.title)")
-                    println("item 3\(song.picture)")
+            music.oneSong.artist = data.valueForKeyPath("artist") as String
+            music.oneSong.title = data.valueForKeyPath("title") as String
+            music.oneSong.picture = data.valueForKeyPath("picture") as String
+
             addDataToView()
         }
         func addDataToView(){
-            titleTxt.text = song.title
-            artistTxt.text = song.artist
+            titleTxt.text = music.oneSong.title
+            artistTxt.text = music.oneSong.artist
 
             findPicture()
         }
         func findPicture() {
             
-            var urlString = song.picture
-            println("picture \(song.picture)")
+            var urlString = music.oneSong.picture
             let url = NSURL(string: urlString)
             var err: NSError?
             var imageData :NSData = NSData(contentsOfURL: url!,options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)!
@@ -53,19 +50,14 @@ class SoundPlayerController: UIViewController{
             
     }
     func startPlaying(){
-        music.songsPlaying.removeAll()
         var index = music.currentSongInList
-        println("index: \(index) og listetørrelse er: \(music.playList.count)")
-        for index in index...music.playList.count-1{
-            var data : NSManagedObject = music.playList[index] as NSManagedObject
-            var songUrl = data.valueForKeyPath("preview") as? String
-            let url = NSURL(string: songUrl!)
-            music.songsPlaying.append(AVPlayerItem(URL: url!))
-        }
-        music.player = AVQueuePlayer(items: music.songsPlaying)
+        var data : NSManagedObject = music.playList[index] as NSManagedObject
+        var songUrl = data.valueForKeyPath("preview") as? String
+        let url = NSURL(string: songUrl!)
+        music.player.pause()
+        AvPlayer = AVPlayer(URL: url)
         println("is in player")
-        music.player.play()
-        println("is in player after play")
+        AvPlayer.play()
     }
     let note = NSNotificationCenter.defaultCenter().addObserverForName(
         AVPlayerItemDidPlayToEndTimeNotification,
@@ -88,10 +80,10 @@ class SoundPlayerController: UIViewController{
         findObject()
     }
     @IBAction func pause(sender: AnyObject) {
-        music.player.pause()
+        AvPlayer.pause()
     }
     @IBAction func play(sender: AnyObject) {
-        music.player.play()
+        AvPlayer.play()
     }
     @IBAction func makeAnimation(sender: AnyObject) {
         

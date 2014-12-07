@@ -17,9 +17,11 @@
 		EC392B9A1A30162800C79D4F /* SearchSongTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC392B991A30162800C79D4F /* SearchSongTableViewController.swift */; };
 		EC392B9E1A301B2600C79D4F /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC392B9D1A301B2600C79D4F /* Music.swift */; };
 		EC392BA01A301F7500C79D4F /* JSONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC392B9F1A301F7500C79D4F /* JSONData.swift */; };
-		EC8DF5CB1A32E86800BB8A5B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECBADFE91A32BBEF0081E728 /* AVFoundation.framework */; };
-		EC8DF5CC1A32E87E00BB8A5B /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECBADFEB1A32BC140081E728 /* AVKit.framework */; };
 		ECBADFE81A32B3050081E728 /* SoundPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBADFE71A32B3050081E728 /* SoundPlayerController.swift */; };
+		ECBBE4FF1A34D28E005799CB /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC6C1E071A34C5D10077C138 /* NotificationCenter.framework */; };
+		ECBBE5041A34D28E005799CB /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBBE5031A34D28E005799CB /* TodayViewController.swift */; };
+		ECBBE5061A34D28E005799CB /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECBBE5051A34D28E005799CB /* MainInterface.storyboard */; };
+		ECBBE5091A34D28E005799CB /* songAddedToday.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = ECBBE4FE1A34D28E005799CB /* songAddedToday.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +32,13 @@
 			remoteGlobalIDString = EC392B601A2FCFEA00C79D4F;
 			remoteInfo = MusicPlayer;
 		};
+		ECBBE5071A34D28E005799CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC392B591A2FCFEA00C79D4F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECBBE4FD1A34D28E005799CB;
+			remoteInfo = songAddedToday;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +48,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				ECBBE5091A34D28E005799CB /* songAddedToday.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,8 +72,11 @@
 		EC392B9F1A301F7500C79D4F /* JSONData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONData.swift; sourceTree = "<group>"; };
 		EC6C1E071A34C5D10077C138 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		ECBADFE71A32B3050081E728 /* SoundPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundPlayerController.swift; sourceTree = "<group>"; };
-		ECBADFE91A32BBEF0081E728 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		ECBADFEB1A32BC140081E728 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		ECBBE4FE1A34D28E005799CB /* songAddedToday.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = songAddedToday.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECBBE5021A34D28E005799CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECBBE5031A34D28E005799CB /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		ECBBE5051A34D28E005799CB /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		ECBBE50D1A34D53B005799CB /* songAddedToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = songAddedToday.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +84,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC8DF5CC1A32E87E00BB8A5B /* AVKit.framework in Frameworks */,
-				EC8DF5CB1A32E86800BB8A5B /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,16 +94,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ECBBE4FB1A34D28E005799CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECBBE4FF1A34D28E005799CB /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		EC392B581A2FCFEA00C79D4F = {
 			isa = PBXGroup;
 			children = (
-				ECBADFEB1A32BC140081E728 /* AVKit.framework */,
-				ECBADFE91A32BBEF0081E728 /* AVFoundation.framework */,
 				EC392B631A2FCFEA00C79D4F /* MusicPlayer */,
 				EC392B7C1A2FCFEB00C79D4F /* MusicPlayerTests */,
+				ECBBE5001A34D28E005799CB /* songAddedToday */,
 				EC6C1E061A34C5D10077C138 /* Frameworks */,
 				EC392B621A2FCFEA00C79D4F /* Products */,
 			);
@@ -103,6 +121,7 @@
 			children = (
 				EC392B611A2FCFEA00C79D4F /* MusicPlayer.app */,
 				EC392B791A2FCFEB00C79D4F /* MusicPlayerTests.xctest */,
+				ECBBE4FE1A34D28E005799CB /* songAddedToday.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -158,6 +177,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		ECBBE5001A34D28E005799CB /* songAddedToday */ = {
+			isa = PBXGroup;
+			children = (
+				ECBBE50D1A34D53B005799CB /* songAddedToday.entitlements */,
+				ECBBE5031A34D28E005799CB /* TodayViewController.swift */,
+				ECBBE5051A34D28E005799CB /* MainInterface.storyboard */,
+				ECBBE5011A34D28E005799CB /* Supporting Files */,
+			);
+			path = songAddedToday;
+			sourceTree = "<group>";
+		};
+		ECBBE5011A34D28E005799CB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ECBBE5021A34D28E005799CB /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -173,6 +211,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				ECBBE5081A34D28E005799CB /* PBXTargetDependency */,
 			);
 			name = MusicPlayer;
 			productName = MusicPlayer;
@@ -197,6 +236,23 @@
 			productReference = EC392B791A2FCFEB00C79D4F /* MusicPlayerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		ECBBE4FD1A34D28E005799CB /* songAddedToday */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECBBE50A1A34D28E005799CB /* Build configuration list for PBXNativeTarget "songAddedToday" */;
+			buildPhases = (
+				ECBBE4FA1A34D28E005799CB /* Sources */,
+				ECBBE4FB1A34D28E005799CB /* Frameworks */,
+				ECBBE4FC1A34D28E005799CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = songAddedToday;
+			productName = songAddedToday;
+			productReference = ECBBE4FE1A34D28E005799CB /* songAddedToday.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -212,6 +268,15 @@
 					EC392B781A2FCFEB00C79D4F = {
 						CreatedOnToolsVersion = 6.1;
 						TestTargetID = EC392B601A2FCFEA00C79D4F;
+					};
+					ECBBE4FD1A34D28E005799CB = {
+						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = Z3LBNU64MX;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -230,6 +295,7 @@
 			targets = (
 				EC392B601A2FCFEA00C79D4F /* MusicPlayer */,
 				EC392B781A2FCFEB00C79D4F /* MusicPlayerTests */,
+				ECBBE4FD1A34D28E005799CB /* songAddedToday */,
 			);
 		};
 /* End PBXProject section */
@@ -249,6 +315,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECBBE4FC1A34D28E005799CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECBBE5061A34D28E005799CB /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +351,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ECBBE4FA1A34D28E005799CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECBBE5041A34D28E005799CB /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -284,6 +366,11 @@
 			isa = PBXTargetDependency;
 			target = EC392B601A2FCFEA00C79D4F /* MusicPlayer */;
 			targetProxy = EC392B7A1A2FCFEB00C79D4F /* PBXContainerItemProxy */;
+		};
+		ECBBE5081A34D28E005799CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECBBE4FD1A34D28E005799CB /* songAddedToday */;
+			targetProxy = ECBBE5071A34D28E005799CB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -442,6 +529,38 @@
 			};
 			name = Release;
 		};
+		ECBBE50B1A34D28E005799CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = songAddedToday/songAddedToday.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = songAddedToday/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		ECBBE50C1A34D28E005799CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = songAddedToday/songAddedToday.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = songAddedToday/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -471,6 +590,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		ECBBE50A1A34D28E005799CB /* Build configuration list for PBXNativeTarget "songAddedToday" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECBBE50B1A34D28E005799CB /* Debug */,
+				ECBBE50C1A34D28E005799CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 

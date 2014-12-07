@@ -79,6 +79,12 @@ class SearchSongTableViewController: UITableViewController, UISearchBarDelegate 
 
         
         context.save(nil)
+        
+        println("setDefaults")
+        let defaults = NSUserDefaults()
+        defaults.setObject("song is added", forKey: "songKey")
+        defaults.synchronize()
+
      //   self.navigationController?.popToRootViewControllerAnimated(true)
 
         

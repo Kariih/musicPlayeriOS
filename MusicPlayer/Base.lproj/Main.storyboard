@@ -16,28 +16,23 @@
                             <rect key="frame" x="0.0" y="162" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <items>
-                                <barButtonItem title="playscreen" id="9KR-ra-mCk">
-                                    <connections>
-                                        <segue destination="teO-7E-TcJ" kind="show" id="Ubj-gn-S5D"/>
-                                    </connections>
-                                </barButtonItem>
                                 <barButtonItem style="plain" systemItem="flexibleSpace" id="6fh-aW-NEL"/>
-                                <barButtonItem systemItem="rewind" id="lQ6-ee-kQ1">
+                                <barButtonItem image="music_rewind_button" id="lQ6-ee-kQ1">
                                     <connections>
                                         <action selector="playPrev:" destination="xQM-Tc-UVj" id="zJe-eu-rCO"/>
                                     </connections>
                                 </barButtonItem>
-                                <barButtonItem systemItem="play" id="6N0-Fk-81t">
+                                <barButtonItem image="music_play_button" id="6N0-Fk-81t">
                                     <connections>
                                         <action selector="play:" destination="xQM-Tc-UVj" id="X5f-fg-n9a"/>
                                     </connections>
                                 </barButtonItem>
-                                <barButtonItem systemItem="pause" id="9fG-1c-Imb">
+                                <barButtonItem image="music_pause_button" id="9fG-1c-Imb">
                                     <connections>
                                         <action selector="pause:" destination="xQM-Tc-UVj" id="RNS-DH-far"/>
                                     </connections>
                                 </barButtonItem>
-                                <barButtonItem systemItem="fastForward" id="rqg-ZB-UVd">
+                                <barButtonItem image="music_fastforward_button" id="rqg-ZB-UVd">
                                     <connections>
                                         <action selector="playNext:" destination="xQM-Tc-UVj" id="Y1R-m1-AUz"/>
                                     </connections>
@@ -75,6 +70,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Playlist" id="1oq-LS-eoL">
+                        <barButtonItem key="leftBarButtonItem" title="Se more" id="Qza-dQ-OUT">
+                            <connections>
+                                <segue destination="teO-7E-TcJ" kind="show" id="XUg-6d-Sw3"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="tik-p6-DuC">
                             <connections>
                                 <segue destination="qs8-XX-cgw" kind="show" id="UiW-pq-cgf"/>

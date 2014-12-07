@@ -20,6 +20,7 @@ class Music : NSObject{
     var playList = [AnyObject]()
     var player:AVQueuePlayer!
     
+    
     func addSong(title : String, artist : String, picture : String, sound : String){
         songs.append(song(title: title, artist: artist, picture: picture, sound: sound))
     }

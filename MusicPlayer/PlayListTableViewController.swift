@@ -9,6 +9,9 @@ class PlayListTableViewController: UITableViewController,UITableViewDelegate, UI
         
     }
     override func viewWillAppear(animated: Bool){
+        if music.songsPlaying.count > 0 {
+            startPlaying()
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
