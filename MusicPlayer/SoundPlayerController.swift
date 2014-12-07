@@ -54,7 +54,9 @@ class SoundPlayerController: UIViewController{
         var data : NSManagedObject = music.playList[index] as NSManagedObject
         var songUrl = data.valueForKeyPath("preview") as? String
         let url = NSURL(string: songUrl!)
-        music.player.pause()
+        if music.isPlaying == true{
+            music.player.pause()
+        }
         AvPlayer = AVPlayer(URL: url)
         println("is in player")
         AvPlayer.play()
@@ -69,15 +71,19 @@ class SoundPlayerController: UIViewController{
            // music.nextView()
     })
     @IBAction func playPrev(sender: AnyObject) {
+        if music.currentSongInList != 0{
         music.removeOne()
         startPlaying()
         findObject()
+        }
     }
     
     @IBAction func playNext(sender: AnyObject) {
+        if music.currentSongInList < music.playList.count - 1{
         music.addOne()
         startPlaying()
         findObject()
+        }
     }
     @IBAction func pause(sender: AnyObject) {
         AvPlayer.pause()

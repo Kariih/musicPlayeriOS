@@ -4,12 +4,14 @@ import AVFoundation
 
 class PlayListTableViewController: UITableViewController,UITableViewDelegate, UITableViewDataSource{
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     override func viewWillAppear(animated: Bool){
         if music.songsPlaying.count > 0 {
+            music.isPlaying = true
             startPlaying()
         }
     }
@@ -79,9 +81,8 @@ class PlayListTableViewController: UITableViewController,UITableViewDelegate, UI
             music.songsPlaying.append(AVPlayerItem(URL: url!))
         }
         music.player = AVQueuePlayer(items: music.songsPlaying)
-        println("is in player")
         music.player.play()
-        println("is in player after play")
+        music.isPlaying = true
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         music.currentSongInList = indexPath.row
@@ -91,18 +92,29 @@ class PlayListTableViewController: UITableViewController,UITableViewDelegate, UI
      
     }
     @IBAction func playPrev(sender: AnyObject) {
-        music.removeOne()
+        if music.currentSongInList != 0{
+            music.removeOne()
+        }
         startPlaying()
     }
     
     @IBAction func playNext(sender: AnyObject) {
-        music.addOne()
-        startPlaying()
+        println("index: \(music.currentSongInList), playList: \(music.playList.count)")
+        if music.currentSongInList < music.playList.count - 1{
+            music.addOne()
+            startPlaying()
+        }
     }
     @IBAction func pause(sender: AnyObject) {
-        music.player.pause()
+        if music.isPlaying == true {
+            music.player.pause()
+        }
     }
     @IBAction func play(sender: AnyObject) {
+        if music.isPlaying == false
+        {
+            startPlaying()
+        }
         music.player.play()
     }
 

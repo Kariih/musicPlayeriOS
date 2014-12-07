@@ -43,6 +43,7 @@ class SearchSongTableViewController: UITableViewController, UISearchBarDelegate 
      
         let cellId: String = "cell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellId) as UITableViewCell
+        if music.songs.count > 0 {
         cell.textLabel.text = music.songs[indexPath.row].title
         cell.detailTextLabel?.text = music.songs[indexPath.row].artist
         var urlString = music.songs[indexPath.row].picture
@@ -50,7 +51,7 @@ class SearchSongTableViewController: UITableViewController, UISearchBarDelegate 
         var err: NSError?
         var imageData :NSData = NSData(contentsOfURL: url!,options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)!
         cell.imageView.image = UIImage(data: imageData)
-
+        }
         return cell
     }
     func searchBarSearchButtonClicked(searchBar: UISearchBar!){
@@ -77,7 +78,6 @@ class SearchSongTableViewController: UITableViewController, UISearchBarDelegate 
         newItem.setValue(music.songs[indexPath.row].picture, forKey: "picture")
         println(music.songs[indexPath.row].picture)
 
-        
         context.save(nil)
         
         println("setDefaults")
@@ -117,6 +117,7 @@ class SearchSongTableViewController: UITableViewController, UISearchBarDelegate 
                     music.songs.removeAll()
                     let track = res["tracks"]! as NSDictionary
                     let tracks = track["items"] as NSArray
+                    var finalPicture: String = ""
                     for t in tracks{
                         let title = t["name"] as NSString
                         let sound = t["preview_url"] as NSString
@@ -124,9 +125,14 @@ class SearchSongTableViewController: UITableViewController, UISearchBarDelegate 
                         let artist = artists[0]["name"] as NSString
                         let album = t["album"] as NSDictionary
                         if let images = album["images"] as? NSArray{
-                            picture = images[1]["url"] as NSString
+                            if images.count > 1 {
+                                let picture = images[1]["url"] as? NSString
+                                    println("picture: \(picture)")
+                                    finalPicture = picture!
+                                    music.addSong(title, artist: artist, picture: finalPicture, sound: sound)
+
+                            }
                         }
-                        music.addSong(title, artist: artist, picture: picture, sound: sound)
                         dispatch_async(dispatch_get_main_queue(), {
                             
                             if (self.refreshControl!.refreshing) {

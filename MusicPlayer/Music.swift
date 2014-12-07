@@ -15,10 +15,11 @@ class Music : NSObject{
 
     var songs = [song]()
     var oneSong = song()
-    var currentSongInList :Int = 3;
+    var currentSongInList :Int = 0;
     var songsPlaying = [AnyObject]()
     var playList = [AnyObject]()
     var player:AVQueuePlayer!
+    var isPlaying: Bool = false
     
     
     func addSong(title : String, artist : String, picture : String, sound : String){
