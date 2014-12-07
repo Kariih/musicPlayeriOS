@@ -22,6 +22,7 @@
 		ECBBE5041A34D28E005799CB /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBBE5031A34D28E005799CB /* TodayViewController.swift */; };
 		ECBBE5061A34D28E005799CB /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECBBE5051A34D28E005799CB /* MainInterface.storyboard */; };
 		ECBBE5091A34D28E005799CB /* songAddedToday.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = ECBBE4FE1A34D28E005799CB /* songAddedToday.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		ECBBE50F1A34FB7C005799CB /* DicoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBBE50E1A34FB7C005799CB /* DicoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		ECBBE5031A34D28E005799CB /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		ECBBE5051A34D28E005799CB /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		ECBBE50D1A34D53B005799CB /* songAddedToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = songAddedToday.entitlements; sourceTree = "<group>"; };
+		ECBBE50E1A34FB7C005799CB /* DicoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DicoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 			children = (
 				EC392B661A2FCFEA00C79D4F /* AppDelegate.swift */,
 				EC392B6D1A2FCFEA00C79D4F /* Main.storyboard */,
+				ECBBE50E1A34FB7C005799CB /* DicoViewController.swift */,
 				EC392B701A2FCFEA00C79D4F /* Images.xcassets */,
 				EC392B721A2FCFEA00C79D4F /* LaunchScreen.xib */,
 				EC392B681A2FCFEA00C79D4F /* MusicPlayer.xcdatamodeld */,
@@ -334,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECBADFE81A32B3050081E728 /* SoundPlayerController.swift in Sources */,
+				ECBBE50F1A34FB7C005799CB /* DicoViewController.swift in Sources */,
 				EC392B6A1A2FCFEA00C79D4F /* MusicPlayer.xcdatamodeld in Sources */,
 				EC392B9A1A30162800C79D4F /* SearchSongTableViewController.swift in Sources */,
 				EC392B9E1A301B2600C79D4F /* Music.swift in Sources */,
