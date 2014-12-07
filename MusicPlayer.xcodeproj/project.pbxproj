@@ -32,6 +32,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		EC6C1E1A1A34C5D10077C138 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		EC392B611A2FCFEA00C79D4F /* MusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC392B651A2FCFEA00C79D4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +60,7 @@
 		EC392B991A30162800C79D4F /* SearchSongTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchSongTableViewController.swift; sourceTree = "<group>"; };
 		EC392B9D1A301B2600C79D4F /* Music.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
 		EC392B9F1A301F7500C79D4F /* JSONData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONData.swift; sourceTree = "<group>"; };
+		EC6C1E071A34C5D10077C138 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		ECBADFE71A32B3050081E728 /* SoundPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundPlayerController.swift; sourceTree = "<group>"; };
 		ECBADFE91A32BBEF0081E728 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		ECBADFEB1A32BC140081E728 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
@@ -79,6 +93,7 @@
 				ECBADFE91A32BBEF0081E728 /* AVFoundation.framework */,
 				EC392B631A2FCFEA00C79D4F /* MusicPlayer */,
 				EC392B7C1A2FCFEB00C79D4F /* MusicPlayerTests */,
+				EC6C1E061A34C5D10077C138 /* Frameworks */,
 				EC392B621A2FCFEA00C79D4F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -135,6 +150,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		EC6C1E061A34C5D10077C138 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC6C1E071A34C5D10077C138 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,6 +168,7 @@
 				EC392B5D1A2FCFEA00C79D4F /* Sources */,
 				EC392B5E1A2FCFEA00C79D4F /* Frameworks */,
 				EC392B5F1A2FCFEA00C79D4F /* Resources */,
+				EC6C1E1A1A34C5D10077C138 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -364,6 +388,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = MusicPlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -374,6 +400,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = MusicPlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

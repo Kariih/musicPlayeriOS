@@ -6,11 +6,13 @@ class SoundPlayerController: UIViewController{
     
     @IBOutlet weak var artistTxt: UILabel!
     @IBOutlet weak var titleTxt: UILabel!
+    @IBOutlet weak var discoLbl: UILabel!
     var song = music.oneSong
     var list = [AnyObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.discoLbl.alpha = 0
         startPlaying()
         findObject()
         }
@@ -36,7 +38,6 @@ class SoundPlayerController: UIViewController{
 
             findPicture()
         }
-        @IBOutlet weak var picture: UIImageView!
         func findPicture() {
             
             var urlString = song.picture
@@ -47,7 +48,7 @@ class SoundPlayerController: UIViewController{
             let image = UIImage(data: imageData)
             let imageView = UIImageView(image: image!)
             
-            imageView.frame = CGRect(x: 50, y: 100, width: 200, height: 200)
+            imageView.frame = CGRect(x: 50, y: 150, width: 200, height: 200)
             view.addSubview(imageView)
             
     }
@@ -73,7 +74,7 @@ class SoundPlayerController: UIViewController{
             println(note)
             music.addOne()
             println("index fra handler: \(music.currentSongInList)")
-            music.nextView()
+           // music.nextView()
     })
     @IBAction func playPrev(sender: AnyObject) {
         music.removeOne()
@@ -91,5 +92,29 @@ class SoundPlayerController: UIViewController{
     }
     @IBAction func play(sender: AnyObject) {
         music.player.play()
+    }
+    @IBAction func makeAnimation(sender: AnyObject) {
+        
+        UIView.animateWithDuration(1, animations: { () -> Void in
+            self.discoLbl.alpha = 1
+            
+        })
+        let coloredSquare = UIView()
+        coloredSquare.backgroundColor = UIColor.greenColor()
+        coloredSquare.frame = CGRect(x: 0, y: 120, width: 20, height: 350)
+        
+        self.view.addSubview(coloredSquare)
+        
+        let options = UIViewAnimationOptions.Repeat
+        
+        UIView.animateWithDuration(1.0, delay: 0.0, options: options, animations: {
+            
+            coloredSquare.backgroundColor = UIColor.yellowColor()
+            coloredSquare.frame = CGRect(x: 320-50, y: 120, width: 20, height: 350)
+            
+            }, completion: nil) 
+
+            
+        
     }
 }

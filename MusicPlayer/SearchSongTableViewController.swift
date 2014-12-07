@@ -45,6 +45,12 @@ class SearchSongTableViewController: UITableViewController, UISearchBarDelegate 
         let cell = tableView.dequeueReusableCellWithIdentifier(cellId) as UITableViewCell
         cell.textLabel.text = music.songs[indexPath.row].title
         cell.detailTextLabel?.text = music.songs[indexPath.row].artist
+        var urlString = music.songs[indexPath.row].picture
+        let url = NSURL(string: urlString)
+        var err: NSError?
+        var imageData :NSData = NSData(contentsOfURL: url!,options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)!
+        cell.imageView.image = UIImage(data: imageData)
+
         return cell
     }
     func searchBarSearchButtonClicked(searchBar: UISearchBar!){
