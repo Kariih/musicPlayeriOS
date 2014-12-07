@@ -26,7 +26,7 @@ class JSONData {
                             let artist = artists[0]["name"] as NSString
                             let album = t["album"] as NSDictionary
                             let images = album["images"] as NSArray
-                            let picture = images[2]["url"] as NSString
+                            let picture = images[1]["url"] as NSString
                             music.addSong(title, artist: artist, picture: picture, sound: sound)
                         }
                     

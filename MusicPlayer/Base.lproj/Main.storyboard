@@ -12,37 +12,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Dz6-vF-xIA">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                        <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="AUa-fa-zB4">
+                            <rect key="frame" x="0.0" y="162" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <items>
-                                <barButtonItem title="Playscreen" id="dZk-VB-XTO">
+                                <barButtonItem title="playscreen" id="9KR-ra-mCk">
                                     <connections>
-                                        <segue destination="teO-7E-TcJ" kind="show" id="3Ea-8y-DR2"/>
+                                        <segue destination="teO-7E-TcJ" kind="show" id="Ubj-gn-S5D"/>
                                     </connections>
                                 </barButtonItem>
-                                <barButtonItem style="plain" systemItem="flexibleSpace" id="gu6-dO-9ZY"/>
+                                <barButtonItem style="plain" systemItem="flexibleSpace" id="6fh-aW-NEL"/>
+                                <barButtonItem systemItem="rewind" id="lQ6-ee-kQ1">
+                                    <connections>
+                                        <action selector="playPrev:" destination="xQM-Tc-UVj" id="zJe-eu-rCO"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem systemItem="play" id="6N0-Fk-81t">
+                                    <connections>
+                                        <action selector="play:" destination="xQM-Tc-UVj" id="X5f-fg-n9a"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem systemItem="pause" id="9fG-1c-Imb">
+                                    <connections>
+                                        <action selector="pause:" destination="xQM-Tc-UVj" id="RNS-DH-far"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem systemItem="fastForward" id="rqg-ZB-UVd">
+                                    <connections>
+                                        <action selector="playNext:" destination="xQM-Tc-UVj" id="Y1R-m1-AUz"/>
+                                    </connections>
+                                </barButtonItem>
                             </items>
                         </toolbar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="tDK-jG-30u" detailTextLabel="pOH-x6-5c4" style="IBUITableViewCellStyleSubtitle" id="cUc-KF-M3S">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="cUc-KF-M3S">
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="cUc-KF-M3S" id="15c-Tw-unh">
+                                <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="topRight" tableViewCell="cUc-KF-M3S" id="15c-Tw-unh">
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tDK-jG-30u">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pOH-x6-5c4">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -61,7 +67,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vGR-b1-Ev9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1703" y="391"/>
+            <point key="canvasLocation" x="1703" y="390.99999999999994"/>
         </scene>
         <!--Sound Player Controller-->
         <scene sceneID="MuX-ny-3yC">
@@ -75,21 +81,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4a-4j-VbU">
-                                <rect key="frame" x="52" y="460" width="269" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sf1-xA-ue7">
-                                <rect key="frame" x="52" y="489" width="269" height="21"/>
+                                <rect key="frame" x="52" y="402" width="269" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e5T-jd-XFd">
-                                <rect key="frame" x="52" y="98" width="342" height="342"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4a-4j-VbU">
+                                <rect key="frame" x="52" y="366" width="269" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="basic_ban" translatesAutoresizingMaskIntoConstraints="NO" id="XDg-L3-Vz1">
+                                <rect key="frame" x="59" y="140" width="240" height="128"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yti-xH-AiO">
+                                <rect key="frame" x="4" y="484" width="64" height="64"/>
+                                <state key="normal" image="music_rewind_button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playPrev:" destination="teO-7E-TcJ" eventType="touchUpInside" id="vzM-2b-r5l"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ke8-T0-M0h">
+                                <rect key="frame" x="76" y="484" width="64" height="64"/>
+                                <state key="normal" image="music_play_button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="play:" destination="teO-7E-TcJ" eventType="touchUpInside" id="c99-gF-9GO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lJE-EG-hZi">
+                                <rect key="frame" x="217" y="484" width="64" height="64"/>
+                                <state key="normal" image="music_fastforward_button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playNext:" destination="teO-7E-TcJ" eventType="touchUpInside" id="34d-z2-kr5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqq-gM-KwU">
+                                <rect key="frame" x="148" y="484" width="64" height="64"/>
+                                <state key="normal" image="music_pause_button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pause:" destination="teO-7E-TcJ" eventType="touchUpInside" id="arR-ut-h4i"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -100,12 +142,13 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="artistText" destination="Sf1-xA-ue7" id="6ad-Eo-kGQ"/>
+                        <outlet property="picture" destination="XDg-L3-Vz1" id="L03-8p-hbH"/>
                         <outlet property="titleText" destination="N4a-4j-VbU" id="HlK-2L-KKC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="enW-5w-unF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1703" y="1213"/>
+            <point key="canvasLocation" x="1697" y="1224"/>
         </scene>
         <!--Search for song-->
         <scene sceneID="izV-A3-9Lw">
@@ -116,7 +159,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" barStyle="black" searchBarStyle="minimal" id="5xn-aa-CX0">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="tintColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
                             <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="alphabet"/>
@@ -143,6 +186,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="qs8-XX-cgw" id="euV-Q4-NPY"/>
                             <outlet property="delegate" destination="qs8-XX-cgw" id="e5h-BU-MOZ"/>
@@ -157,7 +201,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KuZ-la-jlu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2442" y="391"/>
+            <point key="canvasLocation" x="2442" y="390.99999999999994"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mAb-I7-YHo">
@@ -173,8 +217,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KK5-df-QfB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="883" y="391"/>
+            <point key="canvasLocation" x="883" y="390.99999999999994"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="basic_ban" width="64" height="64"/>
+        <image name="music_fastforward_button" width="64" height="64"/>
+        <image name="music_pause_button" width="64" height="64"/>
+        <image name="music_play_button" width="64" height="64"/>
+        <image name="music_rewind_button" width="64" height="64"/>
+    </resources>
     <color key="tintColor" red="1" green="0.43529412150382996" blue="0.81176471710205078" alpha="1" colorSpace="calibratedRGB"/>
 </document>
